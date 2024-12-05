@@ -1,0 +1,40 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+li{
+    list-style: none;
+}
+/* 
+header, ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+
+.display-center{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header{
+    /* border: 2px solid red; */
+    padding: 32px 64px;
+    margin: 32px 64px;
+    background-color: rgba(53, 149, 239, 0.543);
+}
+li{
+    margin: 0 10px;
+}
+
+
+.header-cta-wrapper img{
+ width: 30px;
+}
+
+.logo{
+    width: 250px;
+}
