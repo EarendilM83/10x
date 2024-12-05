@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+header{
+    height: 150px;
+    border: 2px solid red;
+}
+
+
+li{
+    margin:0 10px
+}
+
+header, ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+img.logo-img{
+    width: 250px;
+}
+
+div.header-cta-wrapper img{
+    width: 30px;
+}
+
+.header-sub-menu{
+    display: none;
+}
+
