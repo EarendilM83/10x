@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+li{
+    list-style:none;
+}
+
+header, ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header{
+    background-color: lightcoral;
+    padding:0 32px;
+    height: 160px;
+    
+}
+
+li{
+    margin: 5px;
+}
+
+header .logo{
+    width: 250px;
+}
+
+div.header-cta-wrapper img{
+    width: 30px;
+}
+
