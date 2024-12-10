@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #6926D7;
+}
+
+table{
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 1000px;
+    text-align: center;
+}
+tr{
+    border-bottom: 1px solid #E1CFFF;
+}
+tr:hover{
+    background-color: #EEE3FF;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+thead tr{
+    height: 40px;
+    background-color: #F5F5F5;
+}
+tbody tr{
+    height: 60px;
+}
+tbody tr:last-child{
+    border:none;
+    
+}
+.table-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
