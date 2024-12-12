@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "IM Fell English", serif;
+}
+ul{
+    list-style: none;
+}
+
+/* header */
+
+header{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 960px;
+    background: linear-gradient(#FAEACA, #EFCFA4);
+    margin: 0 auto;
+    /* height: 44px; */
+    border-radius: 99px;
+    padding: 5px;
+    box-shadow: 0px 4px 4px #0000004a
+    /* margin-top: 30px; */
+}
+nav{
+    margin-left:20px;
+}
+header nav ul{
+    display: flex;
+}
+header nav ul li{
+    color: #A9895D;
+    font-size: 12px;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+header nav ul li:hover{
+    color: #4A3211;
+    
+}
+
+span.separator{
+    margin: 0 20px;
+    width: 1px;
+    height: 18px;
+    background-color: #EDCEA3;
+}
+
+button{
+    padding: 0 20px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#9BB6B3, #5F888A);
+    border: none;
+    border-radius: 99px;
+}
+
+.header-cta span{
+    color: #D6F2EC;
+    font-size: 14px;
+}
+.header-cta-icon{
+    margin-left: 11px;
+
+}
+
+
+.hero-footer{
+    display: flex;
+}
+
+/* hero section */
+
+section.hero{
+    overflow: hidden;
+    background-image: url("../media/hero.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+.adventure-cards {
+    height: 580px;
+    display: flex;
+    align-items: center;
+    background-color: #131D24;
+    padding: 40px 20px;
+}
+
+.adventure-cards__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.adventure-card {
+    height: 354px;
+    min-width: 245px;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+}
+
+.adventure-card__title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.adventure-card__subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    color: #79969C;
+}
+
+.adventure-card__description {
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    color: #586061;
+    line-height: 1.6;
+}
+
+.adventure-card__icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.adventure-card__icon {
+    width: 20px;
+    height: 20px;
+    /* background-color: #e67e22; */
+    border-radius: 50%;
+}
+
+
+/* arcane castle hero section */
+
+.arcane-academy-wrapper{
+    height: 588px;
+    background-image: url("../media/arcane-palace.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.bg{
+    width: 100%;
+    height: 588px;
+    overflow: hidden;
+}
+
+.bg img{
+    width: 100%;
+    height: 588px;
+}
