@@ -38,7 +38,9 @@ header{
     /* height: 44px; */
     border-radius: 99px;
     padding: 5px;
-    box-shadow: 0px 4px 4px #0000004a
+    box-shadow: 0px 4px 4px #0000004a;
+    position: fixed; 
+    top: 150px;
     /* margin-top: 30px; */
 }
 nav{
@@ -85,6 +87,8 @@ span.separator{
     display: flex;
 }
 
+
+
 /* hero section */
 
 section.hero{
@@ -103,6 +107,14 @@ section.hero{
     align-items: center;
     background-color: #131D24;
     padding: 40px 20px;
+    /* position: relative;  */
+}
+
+.second{
+    position: fixed;
+    top:0;
+    left:0;
+    transform: rotate(180deg);
 }
 
 .adventure-cards__container {
