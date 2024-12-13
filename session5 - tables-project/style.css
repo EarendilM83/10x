@@ -182,7 +182,6 @@ h1{
     overflow: hidden;
     box-shadow: 0 4px 8px #000000cc;
     border-radius: 99px;
-    
 }
 
 .arcane-academy-cta{
@@ -200,4 +199,46 @@ h1{
     border-radius: 0 99px 99px 0;
     background: linear-gradient(#9BB6B3, #5F888A);
     color: #D6F2EC;
+}
+
+.aracane_awaiting{
+    width: 100%;
+    height: 595px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #131D24;
+}
+
+.aracane_awaiting_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+}
+
+.aracane_awaiting_content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+    width: 303px;
+    height: 299px;
+    color: #EEF4F8;
+}
+
+.aracane_awaiting_content button{
+    background: linear-gradient(#FAEACA, #EFCFA4);
+}
+
+.aracane_awaiting_content span{
+    color: #4A3211;
+}
+
+.aracane_awaiting_content h3{
+    font-size: 24px;
+}
+
+.aracane_awaiting_content p{
+    font-size: 12px;
 }
