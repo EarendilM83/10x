@@ -10,6 +10,16 @@ ul{
     list-style: none;
 }
 
+button{
+    font-family: inherit;
+    padding: 0 20px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 /* header */
 
 header{
@@ -55,12 +65,7 @@ span.separator{
     background-color: #EDCEA3;
 }
 
-button{
-    padding: 0 20px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.header-cta{
     background: linear-gradient(#9BB6B3, #5F888A);
     border: none;
     border-radius: 99px;
@@ -155,20 +160,44 @@ section.hero{
 .arcane-academy-wrapper{
     min-height: 588px;
     background-image: url("../media/arcane-palace.png");
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
 }
 
+h1{
+    color: #fff;
+    font-size: 36px;
+}
 
-
-/* .bg{
-    width: 100%;
-    height: 588px;
+.arcane-button-wrapper {
+    display: flex;
+    width: 273px;
     overflow: hidden;
+    box-shadow: 0 4px 8px #000000cc;
+    border-radius: 99px;
+    
 }
 
-.bg img{
-    width: 100%;
-    height: 588px;
-} */
+.arcane-academy-cta{
+    width: 50%;
+    border: none;
+    font-size: 12px;
+    padding: 0;
+}
+.arcane-academy-cta:first-child{
+    border-radius: 99px 0 0 99px;
+    background: linear-gradient(#FAEACA, #EFCFA4);
+    color:  #4A3211;
+}
+.arcane-academy-cta:last-child{
+    border-radius: 0 99px 99px 0;
+    background: linear-gradient(#9BB6B3, #5F888A);
+    color: #D6F2EC;
+}
