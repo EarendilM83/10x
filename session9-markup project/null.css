@@ -1,0 +1,34 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+*::before,*::after {
+    box-sizing: inherit;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

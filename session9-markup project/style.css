@@ -1,3 +1,5 @@
+@import url(./null.css);
+
 @font-face {
     font-family: "Gilroy";
     src: url("../media/fonts/Gilroy-Regular.woff");
@@ -11,16 +13,21 @@
     src: url("../media/fonts/Gilroy-SemiBold.woff");
 }
 
-*{
+/* *{
     margin:0;
     padding: 0;
-}
+} */
 
 body{
     background-color: #F5F5F5;
     font-family: "Gilroy";
 }
-
+.hero_header-wrapper{
+    position: relative;
+}
+button {
+    background-color: transparent;
+}
 .card-content-holder{
     width: 370px;
     height: 476px;
@@ -32,6 +39,7 @@ body{
     background-image: url(../media/poster1.png);
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow:0px 28px 24px -11px #8181819c;
 
 }
 .card-wrapper{
@@ -127,8 +135,196 @@ body{
     border-radius: 50px;
 }
 
+header {
+    padding: 40px 80px;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
 
 
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 65px;
+}
+
+header nav ul li:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+}
+header li:hover{
+    color: #929292bb;
+    cursor: pointer;
+}
+
+.cart-cta {
+    position: relative;
+}
+#header-cta {
+    padding: 10px;
+}
+header button img {
+    width: 25px;
+    height: 28px;
+}
+
+header button span {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 12px;
+    border-radius: 50%;
+    background-color: #E58411;
+    color: #fff;
+    text-align: center;
+    padding: 6px;
+}
+
+.hero-wrapper{
+
+    background: url(../media/furnniture-hero.png) no-repeat center center / cover;
+    aspect-ratio: 1440 / 1084;
+    height: 100vh;
+    width: 100%;
+    padding-top: 161px;
+    position: relative;
+}
+
+.hero-content-wrapper {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.hero-text-inner {
+    max-width: 881px;
+    align-content: start;
+    max-width: 881px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-content-wrapper h1 {
+    font-family: "Gilroy-bold";
+    font-size: 80px;
+    line-height: 130%;
+    margin-bottom: 14px;
+}
+
+.hero-content-wrapper p {
+    font-size: 24px;
+    opacity: .8;
+    margin-bottom: 45px;
+}
 
 
+.hero-text-inner form {
+    position: relative;
+    min-width: 344px;
+    max-width: 344px;
+    /* display: inline; */
+}
+.hero-text-inner .search-button{
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #E58411;
+    border-radius: 50%;
+}
+.hero-content-wrapper input {
+    color: #fff;
+    width: 100%;
+    font-size: 18px;
+    padding: 15px 0 15px 20px;
+    border-radius: 42px;
+    backdrop-filter: blur(2px);
+    box-shadow: inset 1px 1px 9px -1px #ffffff5c;
+    border: 1px solid #ffffff99;
+    background: rgba(255, 255, 255, 15%);
+}
 
+.animated-circle, .circle-pupil{
+    border-radius: 50%;
+}
+
+.animated-circle{
+    width: 55px;
+    height: 55px;
+    background-color: rgba(255,255,255,20%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+    backdrop-filter: blur(8px);
+    position: absolute;
+    bottom: 23%;
+    left: 19%;
+}
+
+.circle-pupil{
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+}
+
+.color-selector{
+    position: relative;
+    width: 112px;
+    height: 48px;
+    background-color: rgba(255,255,255,20%);
+    /* border: 1px solid #fff; */
+    backdrop-filter: blur(8px);
+    border-radius: 36px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pointer-circle{
+    position: absolute;
+    width: 26px;
+    height: 13px;
+    background-color: rgba(255,255,255,20%);
+    border-bottom: 1px solid #fff;
+    backdrop-filter: blur(8px);
+    border-radius: 0 0 50% 50%/0 0 100% 100%;
+    bottom:-13px;
+    left:50%;
+    transform:translateX(-50%);
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+}
+
+.side-chick-divs{
+    width: 44px;
+    height: 100%;
+    border-radius: 36px 0 0 36px; 
+    background-color: rgba(255,255,255,20%);
+    height: 100%;
+    border-radius: 36px 0 0 36px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    /* background-color: red; */
+    border-left: 1px solid white;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+
+.filler{
+    width: 30px;
+    height: 100%;
+    background-color: red;
+}
