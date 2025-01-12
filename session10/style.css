@@ -14,29 +14,42 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
+}
+.timeline-wrapper {
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
 
+    /* Hides scrollbar in WebKit browsers (Chrome, Safari, etc.) */
+    overflow-y: hidden; /* Ensure vertical scroll is hidden */
+    overflow-x: auto; /* Allow horizontal scroll */
 }
 
-section.timeline-wrapper{
-    width: 100%;
+
+section.timeline-wrapper {
     height: 100vh;
-    overflow-y: hidden;
+    overflow-x: scroll; 
+    overflow-y: auto;
     background: url(../media/grid.avif);
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
+    /* border: 5px solid red; */
+    /* padding-left:50px; */
 }
 
 
-.timeline{
+.timeline {
+    /* min-width: 170vw; */
+    width: max-content;
     position: relative;
-    top:115px;
-    width: 100vw;
+    top: 115px;
     height: 4px;
     background-color: #D74E12;
     display: flex;
-    justify-content: space-around;
+    gap: 200px;
+    padding: 0 150px;
 
 }
 
@@ -47,7 +60,6 @@ section.timeline-wrapper{
     width: 60px;
     height: 60px;
 }
-
 .card-wrapper{
     position: relative;
 }
@@ -112,9 +124,13 @@ h2.virus-name{
 }
 .side-content-holder a{
     font-family: "bebas-neue-bolld";
-    color: #000;
+    color: #000000;
     font-size: 16px;
     text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+.side-content-holder a:hover{
+    color: #D74E12;
 }
 
 .side-content-holder .year-number{
@@ -151,13 +167,17 @@ h2.virus-name{
     cursor: pointer;
 }
 
-.card-wrapper h2, .card-wrapper .top-content-wrapper, .virus-icon-borders, .virus-img{
+h2, .top-content-wrapper, .virus-icon-borders, .virus-img{
     transition: .5s ease-out;
     opacity: 0.15;
 }
 
-.card-wrapper:hover h2, .card-wrapper:hover .top-content-wrapper, .card-wrapper:hover .virus-icon-borders, .card-wrapper:hover .virus-img {
+/* .card-wrapper:hover h2, .card-wrapper:hover .top-content-wrapper, .card-wrapper:hover .virus-icon-borders, .card-wrapper:hover .virus-img {
     transition: 0.5s ease-in-out;
+    opacity: 1;
+} */
+
+.active{
     opacity: 1;
 }
 
@@ -167,18 +187,20 @@ h2.virus-name{
     display: flex;
     flex-direction: column;
     align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .timeline-header h1{
     font-size: 78px;
     font-family: "bebas-neue-bolld";
+
 }
 
 nav{
     margin-top:20px;
     min-width: 500px;
     max-width: 530px;
-    /* background-color: rgba(255, 0, 0, 0.315); */
 }
 
 ul{
@@ -196,11 +218,40 @@ li{
     padding: 0px 30px;
 }
 
-li:hover{
+.tab-active{
     color: #D74E12;
     border-bottom: 3px solid #D74E12;
 }
-/* .active{
-    
 
-} */
+.timeline-marks{
+    position: absolute;
+    bottom:60px;
+    left: 85px;
+    padding: 50px;
+    /* border-radius: 50%; */
+}
+.map-item{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-top:20px;
+}
+
+.map-item span {
+    font-size: 16px;
+    font-family: "firago-medium";
+    margin-left: 5px;
+}
+
+#child{
+    min-width: 144vw;
+    display: flex;
+}
+#women{
+    min-width: 130vw;
+    display: none;
+}
+#men{
+    min-width: 104vw;
+    display: none;
+}

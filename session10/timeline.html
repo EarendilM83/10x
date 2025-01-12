@@ -3,8 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
     <title>Timeline</title>
+    <style>
+        @font-face{
+    font-family: "bebas-neue-bolld";
+    src: url(../media/fonts/bebas-neue-bold.otf);
+}
+@font-face{
+    font-family: "firago-medium";
+    src: url(../media/fonts/FiraGO-Medium.ttf);
+}
+@font-face{
+    font-family: "firago-bold";
+    src: url(../media/fonts/FiraGO-Bold.otf);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.timeline-wrapper {
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+    /* Hides scrollbar in WebKit browsers (Chrome, Safari, etc.) */
+    overflow-y: hidden; /* Ensure vertical scroll is hidden */
+    overflow-x: auto; /* Allow horizontal scroll */
+}
+
+
+section.timeline-wrapper {
+    height: 100vh;
+    overflow-x: scroll; 
+    overflow-y: auto;
+    background: url(../media/grid.avif);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* border: 5px solid red; */
+    /* padding-left:50px; */
+}
+
+
+.timeline {
+    /* min-width: 170vw; */
+    width: max-content;
+    position: relative;
+    top: 115px;
+    height: 4px;
+    background-color: #D74E12;
+    display: flex;
+    gap: 200px;
+    padding: 0 150px;
+
+}
+
+.timeline-item img{
+    transform:translateY(-50%);
+    position: relative;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+}
+.card-wrapper{
+    position: relative;
+}
+h2.virus-name{
+    color: #659F7C;
+    font-family: "bebas-neue-bolld";
+    font-size: 45px;
+    position: absolute;
+    top:-270px;
+    left: -29%;
+}
+
+.virus-icon-borders{
+    position: absolute;
+    top: -199px;
+    left: 30px;
+    width: 44px;
+    height: 300px;
+    border-left: 1px solid #659F7C;
+    border-bottom: 1px solid  #659F7C;
+}
+
+.virus-icon-borders:before{
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: #659F7C;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    left:-4px;
+}
+
+.virus-img{
+    width: 90px;
+    position: absolute;
+    left: 74px;
+    top: 53px;
+    border: 4px solid #D74E12;
+    border-radius: 50%;
+}
+
+.top-content-wrapper{
+    width: 295px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: -210px;
+    left: -40px;
+}
+.side-content-holder{
+    display: flex;
+    flex-direction: column;
+}
+.side-content-holder p{
+    width: 194px;
+    font-family: "firago-medium";
+    color: #616161;
+    font-size: 12px;
+    margin-top:7px;
+    margin-bottom: 1rem;
+}
+.side-content-holder a{
+    font-family: "bebas-neue-bolld";
+    color: #000000;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+.side-content-holder a:hover{
+    color: #D74E12;
+}
+
+.side-content-holder .year-number{
+    font-family: "firago-bold";
+    font-size: 36px;
+}
+.card-wrapper:nth-child(even), .card-wrapper:nth-child(even) .top-content-wrapper, .card-wrapper:nth-child(even) h2, .card-wrapper:nth-child(even) .timeline-item, .card-wrapper:nth-child(even) .virus-img  {
+    transform: rotate(180deg) scale(-1,1);
+}
+
+.card-wrapper:nth-child(even) .timeline-item img{
+    transform:translateY(50%);
+    z-index: 2;
+}
+.card-wrapper:nth-child(even) .virus-icon-borders{
+    z-index: -1;
+}
+
+.card-wrapper:nth-child(even) .side-content-holder{
+    justify-content: flex-end;
+}
+.card-wrapper:nth-child(even) a{
+    margin-bottom: 32px;
+}
+.card-wrapper:nth-child(even) h2{
+    color: #D74E12;
+}
+
+.year-text{
+    font-family: "firago-medium";
+    font-size: 12px;
+}
+.timeline-item{
+    cursor: pointer;
+}
+
+h2, .top-content-wrapper, .virus-icon-borders, .virus-img{
+    transition: .5s ease-out;
+    opacity: 0.15;
+}
+
+/* .card-wrapper:hover h2, .card-wrapper:hover .top-content-wrapper, .card-wrapper:hover .virus-icon-borders, .card-wrapper:hover .virus-img {
+    transition: 0.5s ease-in-out;
+    opacity: 1;
+} */
+
+.active{
+    opacity: 1;
+}
+
+.timeline-header{
+    position: absolute;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-header h1{
+    font-size: 78px;
+    font-family: "bebas-neue-bolld";
+
+}
+
+nav{
+    margin-top:20px;
+    min-width: 500px;
+    max-width: 530px;
+}
+
+ul{
+    margin:0 auto;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+li{
+    font-size: 44px;
+    font-family: "bebas-neue-bolld";
+    cursor: pointer;
+    color: #659F7C;
+    border-bottom: 3px solid #659F7C;
+    padding: 0px 30px;
+}
+
+.tab-active{
+    color: #D74E12;
+    border-bottom: 3px solid #D74E12;
+}
+
+.timeline-marks{
+    position: absolute;
+    bottom:60px;
+    left: 85px;
+    padding: 50px;
+    /* border-radius: 50%; */
+}
+.map-item{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-top:20px;
+}
+
+.map-item span {
+    font-size: 16px;
+    font-family: "firago-medium";
+    margin-left: 5px;
+}
+
+#child{
+    min-width: 144vw;
+    display: flex;
+}
+#women{
+    min-width: 130vw;
+    display: none;
+}
+#men{
+    min-width: 104vw;
+    display: none;
+}
+    </style>
 </head>
 <body>
     <section class="timeline-wrapper" id="timeline-wrapper">
@@ -12,16 +271,37 @@
             <h1>ვაქცინაციის თაიმლაინი</h1>
             <nav class="header-navigation">
                 <ul>
-                    <li class="tab-nav-item active">ბავშვი</li>
-                    <li class="tab-nav-item">ქალი</li>
-                    <li class="tab-nav-item">კაცი</li>
+                    <li id="tab-child" class="tab-nav-item tab-active">ბავშვი</li>
+                    <li id="tab-women" class="tab-nav-item">ქალი</li>
+                    <li id="tab-men" class="tab-nav-item">კაცი</li>
                 </ul>
             </nav>
         </div>
 
-        <div class="timeline">
+        <!-- Children -->
+        <div id="child" class="timeline">
             <div class="card-wrapper">
-                <h2 id="heading" class="virus-name">პაპილომა</h2>
+                <h2 class="virus-name active">პაპილომა</h2>
+                <div class="top-content-wrapper active">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders active"></div>
+                <img class="virus-img active" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
                 <div class="top-content-wrapper">
                     <div class="side-content-holder">
                         <span class="year-number">0.5</span>
@@ -34,14 +314,14 @@
 
                 </div>
                 <div id="timeline-item" class="timeline-item">
-                    <img src="../media/vaccine.png" alt="vaccine">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
                 </div>
                 <div class="virus-icon-borders"></div>
-                <img class="virus-img" src="../media/virus2.png" alt="virus">
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
             </div>
 
             <div class="card-wrapper">
-                <h2 class="virus-name">პაპილომა</h2>
+                <h2  class="virus-name">პაპილომა</h2>
                 <div class="top-content-wrapper">
                     <div class="side-content-holder">
                         <span class="year-number">0.5</span>
@@ -53,14 +333,15 @@
                     </div>
 
                 </div>
-                <div class="timeline-item">
-                    <img src="../media/screening.png" alt="screening">
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
                 </div>
                 <div class="virus-icon-borders"></div>
-                <img class="virus-img" src="../media/virus1.png" alt="virus">
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
             </div>
+
             <div class="card-wrapper">
-                <h2 class="virus-name">პაპილომა</h2>
+                <h2  class="virus-name">პაპილომა</h2>
                 <div class="top-content-wrapper">
                     <div class="side-content-holder">
                         <span class="year-number">0.5</span>
@@ -72,15 +353,15 @@
                     </div>
 
                 </div>
-                <div class="timeline-item">
-                    <img src="../media/vaccine.png" alt="screening">
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
                 </div>
                 <div class="virus-icon-borders"></div>
-                <img class="virus-img" src="../media/virus2.png" alt="virus">
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
             </div>
 
             <div class="card-wrapper">
-                <h2 class="virus-name">პაპილომა</h2>
+                <h2  class="virus-name">პაპილომა</h2>
                 <div class="top-content-wrapper">
                     <div class="side-content-holder">
                         <span class="year-number">0.5</span>
@@ -92,24 +373,540 @@
                     </div>
 
                 </div>
-                <div class="timeline-item">
-                    <img src="../media/screening.png" alt="screening">
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
                 </div>
                 <div class="virus-icon-borders"></div>
-                <img class="virus-img" src="../media/virus1.png" alt="virus">
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
             </div>
-            
 
-            
+            <div class="card-wrapper">
+                <h2 id="nukri"  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
 
-            
-            
-            
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა 9</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა0</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+        </div>
+
+        <!-- Women -->
+        <div id="women" class="timeline">
+            <div class="card-wrapper">
+                <h2 class="virus-name active">პაპილომა</h2>
+                <div class="top-content-wrapper active">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders active"></div>
+                <img class="virus-img active" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2 id="nukri"  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა 9</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+        </div>
+
+
+        <!-- men -->
+        <div id="men" class="timeline">
+            <div class="card-wrapper">
+                <h2 class="virus-name active">პაპილომა</h2>
+                <div class="top-content-wrapper active">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders active"></div>
+                <img class="virus-img active" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2 id="nukri"  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+
+            <div class="card-wrapper">
+                <h2  class="virus-name">პაპილომა</h2>
+                <div class="top-content-wrapper">
+                    <div class="side-content-holder">
+                        <span class="year-number">0.5</span>
+                        <span class="year-text">წელი</span>
+                    </div>
+                    <div class="side-content-holder">
+                        <p>ლორემ იპსუმ გადასცდა ვვტომობილი ზოგადად ვნერვიულობ დააბრალე ნატერფალიც, დადო შუაღამემდის იტევდა ანტრაქტებში, დამარხვამ მონობა</p>
+                        <a href="#">ვრცლად</a>
+                    </div>
+
+                </div>
+                <div id="timeline-item" class="timeline-item">
+                    <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine.png" alt="vaccine">
+                </div>
+                <div class="virus-icon-borders"></div>
+                <img class="virus-img" src="https://cgstore.ge/10x/wp-content/uploads/2025/01/virus2.png" alt="virus">
+            </div>
+        </div>
+
+        <div class="timeline-marks">
+            <div class="map-item">
+                <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/vaccine-shield.png" alt="shield">
+                <span>-</span><span>ვაქცინაცია</span></div>
+            <div class="map-item">
+                <img src="https://cgstore.ge/10x/wp-content/uploads/2025/01/screening-icon.png" alt="screening">
+                <span>-</span><span>სკრინინგი</span>
+            </div>
         </div>
     </section>
 
     
-
     <!-- <script src="./main.js"></script> -->
+    <!-- <script src="./main.js"></script> -->
+     <script>
+                    // Get all the card-wrapper elements
+            const cardWrappers = document.querySelectorAll('.card-wrapper');
+
+            const child = document.getElementById("tab-child");
+            const women = document.getElementById("tab-women");
+            const men = document.getElementById("tab-men");
+
+
+            const childDis = document.querySelector("#child");
+            const womenDis = document.querySelector("#women");
+            const menDis = document.querySelector("#men");
+
+            // Function to handle hover event
+            function handleHover() {
+                // Remove the "active" class from the currently active card
+                const activeElements = document.querySelectorAll('.active');
+                activeElements.forEach(el => el.classList.remove('active'));
+
+                // Add the "active" class to the hovered card and its children
+                this.querySelector('.virus-name').classList.add('active');
+                this.querySelector('.top-content-wrapper').classList.add('active');
+                this.querySelector('.virus-icon-borders').classList.add('active');
+                this.querySelector('.virus-img').classList.add('active');
+            }
+
+            // Add hover event listener to each card-wrapper
+            cardWrappers.forEach(card => {
+                card.addEventListener('mouseenter', handleHover);
+            });
+
+
+            const addChild = ()  => {
+                childDis.style.display = "flex";
+                womenDis.style.display = "none";
+                menDis.style.display = "none";
+
+                child.classList.add("tab-active")
+                men.classList.remove("tab-active")
+                women.classList.remove("tab-active")
+
+            }
+
+            const addWomen = ()  => {
+                childDis.style.display = "none";
+                womenDis.style.display = "flex";
+                menDis.style.display = "none";
+
+                women.classList.add("tab-active")
+                men.classList.remove("tab-active")
+                child.classList.remove("tab-active")
+
+
+            }
+            const addMen = ()  => {
+                childDis.style.display = "none";
+                womenDis.style.display = "none";
+                menDis.style.display = "flex";
+
+                men.classList.add("tab-active")
+                child.classList.remove("tab-active")
+                women.classList.remove("tab-active")
+
+
+            }
+
+
+            child.addEventListener("click", addChild);
+            women.addEventListener("click", addWomen);
+            men.addEventListener("click", addMen);
+
+
+
+            // Select the timeline wrapper
+            const timelineWrapper = document.getElementById('timeline-wrapper');
+
+            // Add an event listener for the 'wheel' event
+            timelineWrapper.addEventListener('wheel', (event) => {
+                event.preventDefault(); // Prevent the default vertical scrolling behavior
+
+                // Scroll horizontally by adjusting the scrollLeft property
+                timelineWrapper.scrollLeft += event.deltaY; // Use deltaY for vertical wheel movement to control horizontal scrolling
+            });
+
+
+     </script>
 </body>
 </html>
