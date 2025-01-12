@@ -1,26 +1,25 @@
 // Get all the card-wrapper elements
-const cardWrappers = document.querySelectorAll('.card-wrapper');
+const cardWrappers = document.querySelectorAll('.card-wrapper_cyberfirefly');
 
-const child = document.getElementById("tab-child");
-const women = document.getElementById("tab-women");
-const men = document.getElementById("tab-men");
+const child = document.getElementById("tab-child_cyberfirefly");
+const women = document.getElementById("tab-women_cyberfirefly");
+const men = document.getElementById("tab-men_cyberfirefly");
 
-
-const childDis = document.querySelector("#child");
-const womenDis = document.querySelector("#women");
-const menDis = document.querySelector("#men");
+const childDis = document.querySelector("#child_cyberfirefly");
+const womenDis = document.querySelector("#women_cyberfirefly");
+const menDis = document.querySelector("#men_cyberfirefly");
 
 // Function to handle hover event
 function handleHover() {
     // Remove the "active" class from the currently active card
-    const activeElements = document.querySelectorAll('.active');
-    activeElements.forEach(el => el.classList.remove('active'));
+    const activeElements = document.querySelectorAll('.active_cyberfirefly');
+    activeElements.forEach(el => el.classList.remove('active_cyberfirefly'));
 
     // Add the "active" class to the hovered card and its children
-    this.querySelector('.virus-name').classList.add('active');
-    this.querySelector('.top-content-wrapper').classList.add('active');
-    this.querySelector('.virus-icon-borders').classList.add('active');
-    this.querySelector('.virus-img').classList.add('active');
+    this.querySelector('.virus-name_cyberfirefly').classList.add('active_cyberfirefly');
+    this.querySelector('.top-content-wrapper_cyberfirefly').classList.add('active_cyberfirefly');
+    this.querySelector('.virus-icon-borders_cyberfirefly').classList.add('active_cyberfirefly');
+    this.querySelector('.virus-img_cyberfirefly').classList.add('active_cyberfirefly');
 }
 
 // Add hover event listener to each card-wrapper
@@ -28,56 +27,76 @@ cardWrappers.forEach(card => {
     card.addEventListener('mouseenter', handleHover);
 });
 
-
-const addChild = ()  => {
+const addChild = () => {
     childDis.style.display = "flex";
     womenDis.style.display = "none";
     menDis.style.display = "none";
 
-    child.classList.add("tab-active")
-    men.classList.remove("tab-active")
-    women.classList.remove("tab-active")
+    child.classList.add("tab-active_cyberfirefly");
+    men.classList.remove("tab-active_cyberfirefly");
+    women.classList.remove("tab-active_cyberfirefly");
+};
 
-}
-
-const addWomen = ()  => {
+const addWomen = () => {
     childDis.style.display = "none";
     womenDis.style.display = "flex";
     menDis.style.display = "none";
 
-    women.classList.add("tab-active")
-    men.classList.remove("tab-active")
-    child.classList.remove("tab-active")
+    women.classList.add("tab-active_cyberfirefly");
+    men.classList.remove("tab-active_cyberfirefly");
+    child.classList.remove("tab-active_cyberfirefly");
+};
 
-
-}
-const addMen = ()  => {
+const addMen = () => {
     childDis.style.display = "none";
     womenDis.style.display = "none";
     menDis.style.display = "flex";
 
-    men.classList.add("tab-active")
-    child.classList.remove("tab-active")
-    women.classList.remove("tab-active")
-
-
-}
-
+    men.classList.add("tab-active_cyberfirefly");
+    child.classList.remove("tab-active_cyberfirefly");
+    women.classList.remove("tab-active_cyberfirefly");
+};
 
 child.addEventListener("click", addChild);
 women.addEventListener("click", addWomen);
 men.addEventListener("click", addMen);
 
 
-
 // Select the timeline wrapper
-const timelineWrapper = document.getElementById('timeline-wrapper');
+// const timelineWrapper = document.getElementById('timeline-wrapper_cyberfirefly');
+
+// // Add an event listener for the 'wheel' event
+// timelineWrapper.addEventListener('wheel', (event) => {
+//     const atRightEdge = timelineWrapper.scrollLeft + timelineWrapper.clientWidth >= timelineWrapper.scrollWidth;
+//     const atLeftEdge = timelineWrapper.scrollLeft <= 0;
+
+//     // If not at an edge, scroll horizontally and prevent default vertical scrolling
+//     if (!atRightEdge && !atLeftEdge) {
+//         event.preventDefault(); // Prevent vertical scrolling
+//         timelineWrapper.scrollLeft += event.deltaY; // Map vertical wheel movement to horizontal scroll
+//     }
+// }, { passive: false });
+
+
+
+//  Select the timeline wrapper
+const timelineWrapper = document.getElementById("timeline-wrapper_cyberfirefly");
 
 // Add an event listener for the 'wheel' event
-timelineWrapper.addEventListener('wheel', (event) => {
-    event.preventDefault(); // Prevent the default vertical scrolling behavior
+timelineWrapper.addEventListener("wheel", (event) => {
+  // Calculate the maximum horizontal scroll position
+  const maxScrollLeft = timelineWrapper.scrollWidth - timelineWrapper.clientWidth;
 
-    // Scroll horizontally by adjusting the scrollLeft property
-    timelineWrapper.scrollLeft += event.deltaY; // Use deltaY for vertical wheel movement to control horizontal scrolling
+  // Determine if we're at the start or end of horizontal scrolling
+  const atStart = timelineWrapper.scrollLeft === 0;
+  const atEnd = timelineWrapper.scrollLeft === maxScrollLeft;
+
+  if (!(atStart && event.deltaY < 0) && !(atEnd && event.deltaY > 0)) {
+    // Allow horizontal scrolling within bounds
+    event.preventDefault();
+    timelineWrapper.scrollLeft += event.deltaY;
+  }
+
+  // Log the current scroll position for debugging
+  console.log("Horizontal scroll position:", timelineWrapper.scrollLeft);
 });
-
