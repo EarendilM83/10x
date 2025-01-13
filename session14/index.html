@@ -11,13 +11,17 @@
         <h1>Input Form</h1>
         <form id="registration-form" action="">
             <label for="name">Full Name</label>
-            <div>
+            <div class="full-name-wrapper">
                 <input id="name" placeholder="Name" type="text">
                 <input id="surname" placeholder="Surname" type="text">
             </div>
-            
+
+            <label for="birthdate">Your birthdate:</label>
+            <div class="datepicker-wrapper">
+                <input id="birthdate" type="date">
+            </div>
             <label for="location-picker">Location</label>
-            <div>
+            <div class="location-picker-wrapper">
                 <select name="Nukri" id="location-picker">
                     <option value="option1">option 1</option>
                     <option value="option2" selected>option 2</option>
@@ -27,21 +31,26 @@
                 </select>
             </div>
            
-            <div>
-                <input name="radio" id="radio1" type="radio">
-                <label for="radio1">radio 1</label>
+            <div class="radio-button-wrapper">
+                <div>
+                    <input name="radio" id="radio1" type="radio">
+                    <label for="radio1">radio 1</label>
+                </div>
+               <div>
                 <input name="radio" id="radio2" type="radio">
                 <label for="radio2">radio 2</label>
+               </div>
+               
 
             </div>
             
             <label for="">Company information</label>
-            <div>
+            <div class="company-name-wrapper">
                 <input type="text" placeholder="Company Name">
             </div>
             
             <label for=""><span><img width="16px" src="../media/i-icon.png" alt=""></span>Describe your case</label>
-            <div>
+            <div class="textarea-wrapper">
                 <textarea placeholder="Tell us about your use case...">
 
                 </textarea>
@@ -49,39 +58,54 @@
             
             <div>
                 <label for="">Phone number</label>
-                <div>
-                    <select name="" id="">
-                        <option value=""><img src="../media/flag.png" width="20px" alt="">+995</option>
-                        <option value=""><img src="../media/flag.png" alt="">+995</option>
-                        <option value=""><img src="../media/flag.png" alt="flag">+995</option>
-                        <option value=""><img src="../media/flag.png" alt="">+995</option>
+                <div class="phone-number-wrapper">
+                    <select class="select-index" name="" id="">
+                        <option class="flag-icon" value="">+995</option>
+                        <option value="">🇬🇪 +995</option>
+                        <option value="">🇬🇪 +995</option>
+                        <option value="">🇬🇪 +995</option>
                     </select>
-                    <input type="number">
+                    <input class="phone-number-input" type="text">
                 </div>
             </div>
 
             <div>
                 <label for="">Credit card information</label>
-                <div>
+                <div class="card-number-wrapper">
                     <input type="number">
                 </div>
                 
-                <div>
-                    <input type="number">
-                    <input type="number">
-                    <input type="number">
+                <div class="card-additional-info_wrapper">
+                        <input id="expire-date-input" class="month" type="text" placeholder="MM/YY">
+                        <input type="number">
                 </div>
                 
             </div>
             <label for="">Choose your interesets</label>
-            <div>
+            <div class="checkbox-wrapper">
                 <input type="checkbox">
                 <input type="checkbox">
             </div>
-            
-            <button type="submit">Submit</button>
+
+            <button class="submit-cta" type="submit">Submit</button>
         </form>
     </section>
     
+    <script>
+       
+        const input = document.getElementById("expire-date-input");
+
+        input.addEventListener("input", (event) => {
+            let value = input.value;
+            
+            value = value.replace(/[^0-9/]/g, "");
+            // Automatically insert slash after 2 digits
+            if (value.length === 2 && !value.includes("/")) {
+                value += "/";
+            }
+            // Limit length to 5 characters (MM/YY)
+            input.value = value.slice(0, 5);
+        });
+    </script>
 </body>
 </html>
