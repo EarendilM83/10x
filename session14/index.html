@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>FORMS</title>
+</head>
+<body>
+    <section class="form-wrapper">
+        <h1>Input Form</h1>
+        <form id="registration-form" action="">
+            <label for="name">Full Name</label>
+            <div>
+                <input id="name" placeholder="Name" type="text">
+                <input id="surname" placeholder="Surname" type="text">
+            </div>
+            
+            <label for="location-picker">Location</label>
+            <div>
+                <select name="Nukri" id="location-picker">
+                    <option value="option1">option 1</option>
+                    <option value="option2" selected>option 2</option>
+                    <option value="">option 1</option>
+                    <option value="">option 1</option>
+                    <option value="">option 1</option>
+                </select>
+            </div>
+           
+            <div>
+                <input name="radio" id="radio1" type="radio">
+                <label for="radio1">radio 1</label>
+                <input name="radio" id="radio2" type="radio">
+                <label for="radio2">radio 2</label>
+
+            </div>
+            
+            <label for="">Company information</label>
+            <div>
+                <input type="text" placeholder="Company Name">
+            </div>
+            
+            <label for=""><span><img width="16px" src="../media/i-icon.png" alt=""></span>Describe your case</label>
+            <div>
+                <textarea placeholder="Tell us about your use case...">
+
+                </textarea>
+            </div>
+            
+            <div>
+                <label for="">Phone number</label>
+                <div>
+                    <select name="" id="">
+                        <option value=""><img src="../media/flag.png" width="20px" alt="">+995</option>
+                        <option value=""><img src="../media/flag.png" alt="">+995</option>
+                        <option value=""><img src="../media/flag.png" alt="flag">+995</option>
+                        <option value=""><img src="../media/flag.png" alt="">+995</option>
+                    </select>
+                    <input type="number">
+                </div>
+            </div>
+
+            <div>
+                <label for="">Credit card information</label>
+                <div>
+                    <input type="number">
+                </div>
+                
+                <div>
+                    <input type="number">
+                    <input type="number">
+                    <input type="number">
+                </div>
+                
+            </div>
+            <label for="">Choose your interesets</label>
+            <div>
+                <input type="checkbox">
+                <input type="checkbox">
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    
+</body>
+</html>
