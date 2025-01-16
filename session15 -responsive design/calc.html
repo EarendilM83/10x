@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS calc()</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: calc(100% - 40px); /* Full width minus 40px */
+            height: calc(50vh - 20px); /* 50% of viewport height minus 20px */
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        calc() Example
+    </div>
+</body>
+</html>

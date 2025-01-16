@@ -25,7 +25,8 @@
 }
 
 section.timeline-wrapper_cyberfirefly {
-    height: 100vh !important;
+    /* position: relative; */
+    height: 85vh !important;
     overflow-x: scroll !important;
     overflow-y: auto !important;
     background: url(https://gowell.ge/wp-content/uploads/2025/01/grid.avif) !important;
@@ -37,7 +38,7 @@ section.timeline-wrapper_cyberfirefly {
 .timeline_cyberfirefly {
     width: max-content !important;
     position: relative !important;
-    top: 115px !important;
+    top: 50px !important;
     height: 4px !important;
     background-color: #D74E12 !important;
     display: flex;
@@ -60,7 +61,7 @@ section.timeline-wrapper_cyberfirefly {
 h2.virus-name_cyberfirefly {
     color: #659F7C;
     font-family: "bebas-neue-bold" !important;
-    font-size: 45px !important;
+    font-size: 26px !important;
     position: absolute !important;
     top: -270px !important;
     left: -29% !important;
@@ -93,8 +94,7 @@ h2.virus-name_cyberfirefly {
     top: 53px !important;
     border: 4px solid #D74E12 !important;
     border-radius: 50% !important;
-    min-width: 90px!important;
-    min-width: 90px!important;
+    width: 90px;
 }
 
 .top-content-wrapper_cyberfirefly {
@@ -135,7 +135,7 @@ h2.virus-name_cyberfirefly {
 
 .side-content-holder_cyberfirefly .year-number_cyberfirefly {
     font-family: "firago-bold" !important;
-    font-size: 36px !important;
+    font-size: 28px !important;
     line-height: 40px !important;
 }
 
@@ -200,7 +200,7 @@ h2.virus-name_cyberfirefly,
 }
 
 .timeline-header_cyberfirefly h1 {
-    font-size: 78px !important;
+    font-size: 60px !important;
     font-family: "bebas-neue-bold" !important;
 }
 
@@ -218,7 +218,7 @@ nav.header-navigation_cyberfirefly {
 }
 
 li.tab-nav-item_cyberfirefly {
-    font-size: 44px !important;
+    font-size: 36px !important;
     font-family: "bebas-neue-bold" !important;
     cursor: pointer;
     color: #659F7C;
@@ -234,7 +234,7 @@ li.tab-nav-item_cyberfirefly {
 
 .timeline-marks_cyberfirefly {
     position: absolute !important;
-    bottom: 60px !important;
+    bottom: -350px !important;
     left: 85px !important;
     padding: 50px !important;
 }
@@ -266,10 +266,4 @@ li.tab-nav-item_cyberfirefly {
     min-width: 104vw !important;
     display: none;
 }
-
-/* .nukri{
-    width: 100vw;
-    background: linear-gradient(red, green, blue);
-    height: 400vh;
-} */
 

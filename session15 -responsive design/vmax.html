@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewport Maximum (vmax)</title>
+    <!-- vmin არის 1% ვიუპორტში მაგრამ აიღებს ან სიგანიდან ან სიმაღლიდან. რომელიც უფრო ნაკლები იქნება მოცემულ შემთხვევაში -->
+    <!-- vmin გამოიყენება ელემენტებთან რომლებიც უნდა ადაპტირდეს მინიმალურ ზომასთან -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .rectangle {
+            width: 30vmax; /* 30% of the larger viewport dimension */
+            height: 10vmax; /* 10% of the larger viewport dimension */
+            background-color: #17a2b8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="rectangle">
+        30vmax x 10vmax
+    </div>
+</body>
+</html>

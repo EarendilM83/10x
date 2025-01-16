@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REM</title>
+</head>
+
+<!-- გამოყენების ქეისი -->
+<!-- ფიქსირებული ზომა -	px -->
+<!-- სქეილდება მშობელთან ერთად	- em -->
+<!-- რელაციური კავშირი აქვს რუთ ელემენტის ფონტ საითან - rem -->
+<!-- გამოიყენება რესფონსივ ლეიაუთების და რესფონსიული ფონტებისთვის rem -->
+<!-- ვიყენებთ კომპონენტის რელაციური ლეიაუთების შესაქმნელად როცა შვილი მშობელთან კავშირშია	em -->
+
+
+<style>
+  /* 1em = font size of the parent */
+    .button {
+      font-size: 64px;
+      padding: 1em 2em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    .button.large {
+      font-size: 40px; 
+    }
+  </style>
+<body>
+      <button class="button">Default Button</button>
+      <button class="button large">Large Button</button>
+</body>
+</html>
