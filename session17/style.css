@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root{
+    --text-heading-margins: 24px 0 ;
+    --card-gaps: 32px;
+    --card-textbox-paddings: 24px;
+    --card-iconbox-paddings: 10px;
+}
+
+/* @media only screen and (min-width: 500){
+
+    :root{
+        --card-gaps: 20px;
+    }
+    p{
+        font-size: var(--card-gaps);
+    }
+    
+} */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    
+}
+
+section#built-for-growth{
+    min-width: 380px;
+    background: #E7ECF1;
+    padding: 76px 16px;
+    font-family: "Inter", serif;
+
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+
+.card-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--card-gaps);
+}
+
+.header-wrapper{
+    margin-bottom: var(--card-gaps);
+    
+}
+h3{
+    margin: var(--text-heading-margins);
+}
+
+.card{
+    background-color: #fff;
+    width: clamp(288px, 100%, 508px);
+    border-radius: 8px;
+}
+.card-content:first-child{
+    background-image: url(../media/stripe-card-1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 233px;
+    border-radius: 8px 8px 0 0;
+
+}
+
+.card-content:last-child{
+    padding: var(--card-textbox-paddings);
+}
+
+.icon-wrapper{
+    padding: var(--card-iconbox-paddings);
+    background: #89a4be7a;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap:12px;
+    margin-bottom: 8px;
+    font-size: 11.25px;
+
+}
+
+.header-wrapper{
+    padding: calc(var(--card-gaps)/2);
+}
+
+.header-wrapper p{
+    width: clamp(315px, 100%, 660px);
+    font-size: clamp(16px, 3vw, 22px);
+}
+
+h5{
+    font-size: 1rem;
+}
+
+h3{
+    font-size: 2rem;
+}
+
+h4{
+    font-size: clamp(22px, 4vw, 24px);
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+.card-content p{
+    font-size: clamp(16px, 3vw, 18px);
+}
+
+@media only screen and (min-width: 768px){
+    .card-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .built-for-growth-wrapper{
+        width: 1080px;
+    }
+
+    .card:nth-child(1){
+        margin-top: 50px;
+    }
+
+    .card:last-child {
+        margin-bottom: 50px;
+    }
+
+
+}

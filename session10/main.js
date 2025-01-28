@@ -1,6 +1,10 @@
-// Get all the card-wrapper elements
-const cardWrappers = document.querySelectorAll('.card-wrapper_cyberfirefly');
+const timelineWrapper = document.getElementById("timeline-wrapper_cyberfirefly");
+let timelineContent = document.querySelector(".timeline_cyberfirefly"); // Target only the content for the active tab
+const leftArrow = document.getElementById("left-arrow_cyberfirefly");
+const rightArrow = document.getElementById("right-arrow_cyberfirefly");
+const cardWrappers = document.querySelectorAll(".card-wrapper_cyberfirefly");
 
+// tabs
 const child = document.getElementById("tab-child_cyberfirefly");
 const women = document.getElementById("tab-women_cyberfirefly");
 const men = document.getElementById("tab-men_cyberfirefly");
@@ -9,32 +13,32 @@ const childDis = document.querySelector("#child_cyberfirefly");
 const womenDis = document.querySelector("#women_cyberfirefly");
 const menDis = document.querySelector("#men_cyberfirefly");
 
-// Function to handle hover event
-function handleHover() {
-    // Remove the "active" class from the currently active card
-    const activeElements = document.querySelectorAll('.active_cyberfirefly');
-    activeElements.forEach(el => el.classList.remove('active_cyberfirefly'));
+// Initialize global variables
+let currentTranslateX = 0;
+let cardWidth = cardWrappers[0]?.offsetWidth + 
+    (parseInt(window.getComputedStyle(timelineWrapper).gap) || 0);
 
-    // Add the "active" class to the hovered card and its children
-    this.querySelector('.virus-name_cyberfirefly').classList.add('active_cyberfirefly');
-    this.querySelector('.top-content-wrapper_cyberfirefly').classList.add('active_cyberfirefly');
-    this.querySelector('.virus-icon-borders_cyberfirefly').classList.add('active_cyberfirefly');
-    this.querySelector('.virus-img_cyberfirefly').classList.add('active_cyberfirefly');
-}
+// Helper to update active timeline content
+const updateActiveTimeline = (newTimelineId) => {
+    // Update the active timeline content
+    timelineContent = document.querySelector(`#${newTimelineId}`);
+    currentTranslateX = 0; // Reset the translate position
+    timelineContent.style.transform = `translateX(${currentTranslateX}px)`; // Reset to the initial position
+    timelineContent.style.transition = "transform 0.5s ease-out"; // Add smooth transition for UX
+    console.log(`Active timeline switched to: ${newTimelineId}`);
+};
 
-// Add hover event listener to each card-wrapper
-cardWrappers.forEach(card => {
-    card.addEventListener('mouseenter', handleHover);
-});
-
+// Tabs logic
 const addChild = () => {
     childDis.style.display = "flex";
     womenDis.style.display = "none";
     menDis.style.display = "none";
 
     child.classList.add("tab-active_cyberfirefly");
-    men.classList.remove("tab-active_cyberfirefly");
     women.classList.remove("tab-active_cyberfirefly");
+    men.classList.remove("tab-active_cyberfirefly");
+
+    updateActiveTimeline("child_cyberfirefly");
 };
 
 const addWomen = () => {
@@ -43,8 +47,10 @@ const addWomen = () => {
     menDis.style.display = "none";
 
     women.classList.add("tab-active_cyberfirefly");
-    men.classList.remove("tab-active_cyberfirefly");
     child.classList.remove("tab-active_cyberfirefly");
+    men.classList.remove("tab-active_cyberfirefly");
+
+    updateActiveTimeline("women_cyberfirefly");
 };
 
 const addMen = () => {
@@ -55,48 +61,104 @@ const addMen = () => {
     men.classList.add("tab-active_cyberfirefly");
     child.classList.remove("tab-active_cyberfirefly");
     women.classList.remove("tab-active_cyberfirefly");
+
+    updateActiveTimeline("men_cyberfirefly");
 };
 
 child.addEventListener("click", addChild);
 women.addEventListener("click", addWomen);
 men.addEventListener("click", addMen);
 
+// Drag-and-swipe functionality
+let isDragging = false;
+let startX = 0;
+let prevTranslateX = 0;
 
-// Select the timeline wrapper
-// const timelineWrapper = document.getElementById('timeline-wrapper_cyberfirefly');
+// Cursor changes for better UX
+timelineWrapper.style.cursor = "grab";
 
-// // Add an event listener for the 'wheel' event
-// timelineWrapper.addEventListener('wheel', (event) => {
-//     const atRightEdge = timelineWrapper.scrollLeft + timelineWrapper.clientWidth >= timelineWrapper.scrollWidth;
-//     const atLeftEdge = timelineWrapper.scrollLeft <= 0;
+// Start dragging
+timelineWrapper.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.clientX; // Capture starting mouse position
+    prevTranslateX = currentTranslateX; // Record the current translateX
+    timelineWrapper.style.cursor = "grabbing"; // Change cursor to grabbing
+    timelineContent.style.transition = "none"; // Disable transition during drag
 
-//     // If not at an edge, scroll horizontally and prevent default vertical scrolling
-//     if (!atRightEdge && !atLeftEdge) {
-//         event.preventDefault(); // Prevent vertical scrolling
-//         timelineWrapper.scrollLeft += event.deltaY; // Map vertical wheel movement to horizontal scroll
-//     }
-// }, { passive: false });
+    // Prevent text selection
+    document.body.classList.add("no-select");
+});
 
+// Dragging in progress
+timelineWrapper.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    const deltaX = e.clientX - startX; // Calculate mouse movement
+    currentTranslateX = prevTranslateX + deltaX; // Update translateX
+    timelineContent.style.transform = `translateX(${currentTranslateX}px)`; // Apply translate
+});
 
+// Stop dragging
+timelineWrapper.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    timelineWrapper.style.cursor = "grab"; // Reset cursor
+    timelineContent.style.transition = "transform 0.5s ease-out"; // Smoothly settle
+    enforceBoundaries(); // Prevent overscroll
 
-//  Select the timeline wrapper
-const timelineWrapper = document.getElementById("timeline-wrapper_cyberfirefly");
+    // Re-enable text selection
+    document.body.classList.remove("no-select");
+});
 
-// Add an event listener for the 'wheel' event
-timelineWrapper.addEventListener("wheel", (event) => {
-  // Calculate the maximum horizontal scroll position
-  const maxScrollLeft = timelineWrapper.scrollWidth - timelineWrapper.clientWidth;
+timelineWrapper.addEventListener("mouseleave", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    timelineWrapper.style.cursor = "grab";
+    timelineContent.style.transition = "transform 0.5s ease-out";
+    enforceBoundaries();
 
-  // Determine if we're at the start or end of horizontal scrolling
-  const atStart = timelineWrapper.scrollLeft === 0;
-  const atEnd = timelineWrapper.scrollLeft === maxScrollLeft;
+    // Re-enable text selection
+    document.body.classList.remove("no-select");
+});
 
-  if (!(atStart && event.deltaY < 0) && !(atEnd && event.deltaY > 0)) {
-    // Allow horizontal scrolling within bounds
-    event.preventDefault();
-    timelineWrapper.scrollLeft += event.deltaY;
-  }
+// Arrow functionality
+const scrollStep = cardWidth * 2; // Scroll step (e.g., 2 cards)
 
-  // Log the current scroll position for debugging
-  console.log("Horizontal scroll position:", timelineWrapper.scrollLeft);
+// Left arrow
+leftArrow.addEventListener("click", () => {
+    if (currentTranslateX < 0) {
+        currentTranslateX += scrollStep;
+        if (currentTranslateX > 0) currentTranslateX = 0; // Prevent overscroll on the left
+        timelineContent.style.transition = "transform 0.5s ease-in-out";
+        timelineContent.style.transform = `translateX(${currentTranslateX}px)`;
+    }
+});
+
+// Right arrow
+rightArrow.addEventListener("click", () => {
+    const maxTranslateX = -(timelineContent.scrollWidth - timelineWrapper.clientWidth);
+    if (currentTranslateX > maxTranslateX) {
+        currentTranslateX -= scrollStep;
+        if (currentTranslateX < maxTranslateX) currentTranslateX = maxTranslateX; // Prevent overscroll on the right
+        timelineContent.style.transition = "transform 0.5s ease-in-out";
+        timelineContent.style.transform = `translateX(${currentTranslateX}px)`;
+    }
+});
+
+// Prevent dragging outside of boundaries
+function enforceBoundaries() {
+    const maxTranslateX = -(timelineContent.scrollWidth - timelineWrapper.clientWidth);
+    if (currentTranslateX > 0) {
+        currentTranslateX = 0; // Snap back to the left edge
+    } else if (currentTranslateX < maxTranslateX) {
+        currentTranslateX = maxTranslateX; // Snap back to the right edge
+    }
+    timelineContent.style.transform = `translateX(${currentTranslateX}px)`;
+}
+
+// Recalculate card width on resize
+window.addEventListener("resize", () => {
+    cardWidth = cardWrappers[0]?.offsetWidth + 
+        (parseInt(window.getComputedStyle(timelineWrapper).gap) || 0);
+    console.log("Updated Card Width on Resize:", cardWidth);
+    enforceBoundaries(); // Adjust position after resize
 });
