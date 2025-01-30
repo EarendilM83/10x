@@ -1,0 +1,58 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.animated-div {
+    background: linear-gradient(270deg, #fe5252, #50b720, #24c7d2, #d346d1);
+    background-size: 400% 400%;
+    width: 300px;
+    height: 300px;
+    border-radius: 40px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    /* animation: spin 5s infinite ease-in-out, gradientShift 5s infinite linear; */
+    animation-fill-mode: forwards;
+    transition: 150ms ease-in-out;
+}
+
+.animated-div:hover {
+    animation-play-state: paused;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+        scale: 4;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    25%{
+        background-position: 50% 100%;
+
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75%{
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
