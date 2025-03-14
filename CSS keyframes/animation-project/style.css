@@ -3,11 +3,14 @@
     padding: 0;
 }
 body{
-    background-color: #fff;
-    /* overflow-x: hidden; */
-    /* scrollbar-width: none; */
+    background:linear-gradient(to top, #ffa7a7, #ffe3a7, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+    overflow-x: hidden;
+    scrollbar-width: none;
+    animation: skycolor 100s infinite;
 
 }
+
+
 
 .main-wrapper{
     display: flex;
@@ -17,16 +20,18 @@ body{
 }
 
 .building-set{
+    position: relative;
+    z-index: 2;
     scale: 2;
     width: 900vw;
-    height: 55vh;
-    /* background-color: red;    */
-    background: url(../media/building-set-refined2.png);
+    height: 230px;
+    background-color: transparent;
+    background: url(../media/city.png);
     background-repeat: repeat-x;
     background-position: 0 35%;
     overflow-x: scroll;
     scrollbar-width: none;
-    animation: moveBG 30s cubic-bezier(0.5, 0.5, 0.5, 0.5) infinite;
+    animation: moveBG 50s cubic-bezier(0.5, 0.5, 0.5, 0.5) infinite;
 
 }
 
@@ -40,6 +45,199 @@ body{
     }
 }
 
-.image-object-wrapper{
+.bird{
     display: none;
 }
+
+.image-object-wrapper{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
+}
+.cloud1, .cloud2, .cloud3, .cloud4, .cloud5{
+    width: 300px;
+    position: absolute;
+    z-index: 4;
+}
+
+.cloud1{
+    top: 100px;
+    right: -640px;
+    animation: cloudMovement1 30s linear infinite;
+}
+.cloud2{
+    top: 300px;
+    right: -340px;
+    animation: cloudMovement1 80s linear 2s infinite;
+
+}
+.cloud3{
+    top: 500px;
+    right: -240px;
+    animation: cloudMovement1 80s linear 10s infinite;
+
+}
+.cloud4{
+    top: 600px;
+    right: -340px;
+    animation: cloudMovement1 80s linear 5s infinite;
+}
+.cloud5{
+    top: 650px;
+    right: -340px;
+    animation: cloudMovement1 80s linear 20s infinite;
+}
+
+.sun{
+    width: 150px;
+    position: absolute;
+    left: -150px;
+    bottom: 230px;
+    z-index: 3;
+    animation: 100s sunCycle linear infinite;
+}
+
+.car, .bus{
+    position: absolute;
+    bottom: -2px;
+    z-index: 5;
+}
+
+.car{
+    width: 100px;
+    animation: 5s carMovement ease-in-out alternate infinite;
+}
+.bus{
+    width: 100px;
+    animation: 5s carMovement 2s ease-in-out alternate infinite;
+    left: 20%;
+
+}
+
+@keyframes carMovement{
+    from{
+        left:20%;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes sunCycle {
+    0%{
+
+    }
+    10%{
+        bottom: 300px;
+    }
+    20%{
+        bottom: 400px;
+    }
+    30%{
+        bottom: 500px;
+    }
+    40%{
+        bottom: 640px;
+    }
+    45%{
+        bottom: 680px;
+    }
+    47%{
+        bottom: 690px;
+    }
+    50%{
+        bottom: 700px;
+    }
+    52%{
+        bottom: 690px;
+    }
+    55%{
+        bottom: 680px;
+    }
+    60%{
+        bottom: 640px;
+    }
+    70%{
+        bottom: 500px;
+    }
+    80%{
+        bottom: 400px;
+    }
+    90%{
+        bottom: 300px;
+    }
+    100%{
+        left: 2300px;
+        bottom: 0;
+    }
+}
+@keyframes skycolor{
+    0%{
+        background:linear-gradient(to top, #ffa7a7, #ffe3a7, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+
+    }
+    10%{
+        background:linear-gradient(to top, #ffa7a79a, #ffe3a78b, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+    }
+    20%{
+        background:linear-gradient(to top, #ffa7a75d, #ffe3a75d, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    30%{
+        background:linear-gradient(to top, #ffa7a72a, #ffe3a738, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    40%{
+        background:linear-gradient(to top, #ffa7a72a, #ffe3a738, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+    }
+    45%{
+        background:linear-gradient(to top, #ffa7a72a, #ffe3a738, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    47%{
+        background:linear-gradient(to top, #ffa7a72a, #ffe3a738, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    50%{
+        background:linear-gradient(to top, #ffa7a72a, #ffe3a738, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    52%{
+        background:linear-gradient(to top, #ffa7a72a, #ffe3a738, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    55%{
+        background:linear-gradient(to top, #ffa7a75d, #ffe3a75d, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+    }
+    60%{
+        background:linear-gradient(to top, #ffa7a79a, #ffe3a78b, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    70%{
+        background:linear-gradient(to top, #ffa7a7, #ffe3a7, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    80%{
+        background:linear-gradient(to top, #ffa7a7, #ffe3a7, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    90%{
+        background:linear-gradient(to top, #ffa7a7, #ffe3a7, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+        
+    }
+    100%{
+        background:linear-gradient(to top, #ffa7a7, #ffe3a7, #a7ecff, #a7dfff, #a7ecff, #a7dfff, #a7ecff, #a7dfff);
+
+    }
+}
+
+@keyframes cloudMovement1 {
+    0%{
+
+    }
+    100%{
+        right: 100vw;
+    }
+}
+
