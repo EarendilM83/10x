@@ -28,23 +28,101 @@
 // counter(); // Counter: 3
 
 // problem with var
-for (var i = 1; i <= 3; i++) {
-    setTimeout(function() {
-        console.log(i); // ❌ Unexpected output!
-    }, 1000);
+// for (var i = 1; i <= 3; i++) {
+//     setTimeout(function() {
+//         console.log(i); // ❌ Unexpected output!
+//     }, 1000);
+// }
+
+// // solution with let
+// for (let i = 1; i <= 3; i++) {
+//     setTimeout(function() {
+//         console.log(i); // ✅ Expected output
+//     }, 1000);
+// }
+
+// for (var i = 1; i <= 3; i++) {
+//     (function(j) {
+//         setTimeout(function() {
+//             console.log(j); // ✅ Correct output!
+//         }, 1000);
+//     })(i); // Passing i to an IIFE
+// }
+
+
+// function printMessage(callback) {
+//     console.log("Start");
+//     callback();
+//     console.log("End");
+// }
+
+// function sayHello() {
+//     console.log("Hello!");
+// }
+
+// printMessage(sayHello);
+
+
+// function printLater(callback) {
+//     console.log("Start");
+//     setTimeout(callback, 1000); // runs after 1 second
+//     console.log("End");
+// }
+
+// printLater(() => {
+//     console.log("Hello from callback!");
+// });
+
+
+// setTimeout(function () {
+//     console.log("This is an anonymous callback");
+//   }, 1000);
+  
+// setTimeout(() => {
+//     console.log("This is a shorter anonymous callback");
+// }, 1000);
+"use strict";
+
+surname = "tusishvili";
+const greet = function() {
+    console.log("Hello");
+};
+
+const greetWithArrow = () => {
+    console.log("Hello");
+};
+
+// greet(); // Output: Hello
+
+
+const sayHi = () => {
+    console.log("Hi there!");
+};
+sayHi();
+
+const greetUser = name => {
+    console.log("Hello " + name);
+};
+greetUser("Nukri");
+
+
+const add = (a, b) => {
+    return a + b;
+};
+console.log(add(2, 3)); // 5
+
+
+const multiply = (a, b) => a * b;
+console.log(multiply(4, 5)); // 20
+
+
+function greet(name) {
+    console.log("Hello " + name);
 }
 
-// solution with let
-for (let i = 1; i <= 3; i++) {
-    setTimeout(function() {
-        console.log(i); // ✅ Expected output
-    }, 1000);
+function processUser(callback) {
+    const name = "Morpheus";
+    callback(name); // greet("Morpheus")
 }
 
-for (var i = 1; i <= 3; i++) {
-    (function(j) {
-        setTimeout(function() {
-            console.log(j); // ✅ Correct output!
-        }, 1000);
-    })(i); // Passing i to an IIFE
-}
+processUser(greet);
