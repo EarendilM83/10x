@@ -50,17 +50,17 @@
 // }
 
 
-// function printMessage(callback) {
-//     console.log("Start");
-//     callback();
-//     console.log("End");
-// }
+function printMessage(callback) {
+    console.log("Start");
+    callback();
+    console.log("End");
+}
 
-// function sayHello() {
-//     console.log("Hello!");
-// }
+function sayHello() {
+    console.log("Hello!");
+}
 
-// printMessage(sayHello);
+printMessage(sayHello);
 
 
 // function printLater(callback) {
@@ -81,48 +81,59 @@
 // setTimeout(() => {
 //     console.log("This is a shorter anonymous callback");
 // }, 1000);
-"use strict";
+// "use strict";
 
-surname = "tusishvili";
-const greet = function() {
-    console.log("Hello");
-};
+// surname = "tusishvili";
+// const greet = function() {
+//     console.log("Hello");
+// };
 
-const greetWithArrow = () => {
-    console.log("Hello");
-};
+// const greetWithArrow = () => {
+//     console.log("Hello");
+// };
 
-// greet(); // Output: Hello
-
-
-const sayHi = () => {
-    console.log("Hi there!");
-};
-sayHi();
-
-const greetUser = name => {
-    console.log("Hello " + name);
-};
-greetUser("Nukri");
+// // greet(); // Output: Hello
 
 
-const add = (a, b) => {
-    return a + b;
-};
-console.log(add(2, 3)); // 5
+// const sayHi = () => {
+//     console.log("Hi there!");
+// };
+// sayHi();
+
+// const greetUser = name => {
+//     console.log("Hello " + name);
+// };
+// greetUser("Nukri");
 
 
-const multiply = (a, b) => a * b;
-console.log(multiply(4, 5)); // 20
+// const add = (a, b) => {
+//     return a + b;
+// };
+// console.log(add(2, 3)); // 5
 
 
-function greet(name) {
-    console.log("Hello " + name);
-}
+// const multiply = (a, b) => a * b;
+// console.log(multiply(4, 5)); // 20
 
-function processUser(callback) {
-    const name = "Morpheus";
-    callback(name); // greet("Morpheus")
-}
 
-processUser(greet);
+// function greet(name) {
+//     console.log("Hello " + name);
+// }
+
+// function processUser(callback) {
+//     const name = "Morpheus";
+//     callback(name); // greet("Morpheus")
+// }
+
+// processUser(greet);
+
+
+// function multiplier(x) {
+//     return function(y) {
+//         return x * y;
+//     }
+// }
+
+// const double = multiplier(2);
+// console.log(double(5)); // 10
+
