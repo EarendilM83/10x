@@ -198,26 +198,26 @@
 //     }
 //   };
   
-//   const robot = {
-//     name: "Sentinel",
-//     speak: function() {
-//       console.log("Hi, I am " + robot.name);
-//     }
-//   };
-  
-//   const bot = robot;
-//   bot.name = "Optimus Prime";
-//   bot.speak(); // Still says: Hi, I am Sentinel ❌
-  
-
   const robot = {
     name: "Sentinel",
     speak: function() {
-      console.log("Hi, I am " + this.name);
+      console.log("Hi, I am " + robot.name);
     }
   };
   
   const bot = robot;
   bot.name = "Optimus Prime";
-  bot.speak(); // ✅ Hi, I am Optimus Prime
+  bot.speak(); // Still says: Hi, I am Sentinel ❌
+  
+
+  // const robot = {
+  //   name: "Sentinel",
+  //   speak: function() {
+  //     console.log("Hi, I am " + this.name);
+  //   }
+  // };
+  
+  // const bot = robot;
+  // bot.name = "Optimus Prime";
+  // bot.speak(); // ✅ Hi, I am Optimus Prime
   
